@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Spring Boot Thymeleaf Hello World Example</title>
+
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+</head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+
+<body>
+	<div>
+		<!-- ============================================================================ -->
+		<!-- This content is only used for static prototyping purposes (natural templates)-->
+		<!-- and is therefore entirely optional, as this markup fragment will be included -->
+		<!-- from "fragments/header.html" at runtime.                                     -->
+		<!-- ============================================================================ -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Static header</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div role="main" class="container">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Salary</th>
+				<th>Age</th>
+				<th>Image</th>
+			</tr>
+			<tbody>
+				<!-- <tr th:if="${employees.empty}">
+				<td colspan="2">No Employee Available</td>
+			</tr> -->
+				<tr th:each="emp : ${employees}">
+					<td th:text="${emp.id}"></td>
+					<td th:text="${emp.getEmployee_name()}"></td>
+					<td th:text="${emp.getEmployee_salary()}"></td>
+					<td th:text="${emp.getEmployee_age()}"></td>
+					<td th:text="${emp.getProfile_image()}"></td>
+				</tr>
+			</tbody>
+
+		</table>
+
+
+	</div>
+	<!-- /.container -->
+
+	<script type="text/javascript"
+		th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
